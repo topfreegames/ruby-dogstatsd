@@ -8,7 +8,7 @@ describe Rails::Middleware::Datadog do
   end
 
   class Rails::Middleware::Datadog
-    def compute_elapsed_time(start_request_time, end_request_time)
+    def compute_elapsed_time_ms(start_request_time, end_request_time)
       10
     end
   end

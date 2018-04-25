@@ -73,7 +73,9 @@ module Sidekiq
 
 
       def record(worker, job, queue, start, error = nil)
-        elapsed_time_ms   = ((Time.now - start) * 1000)
+        end_time = Time.now
+
+        elapsed_time_ms   = compute_elapsed_time_ms(end_time, start)
         name = replace_hifen_to_underscore(job['wrapped'] || worker.class.to_s)
         tags = pre_proccess_tags(@tags, worker, job, name, queue, error)
         
@@ -88,6 +90,10 @@ module Sidekiq
         word.tr!("-", "_")
 
         word.downcase
+      end
+
+      def compute_elapsed_time_ms(start_time, end_time)
+        (end_time - start_time) * 1000
       end
 
       def report_queue_length(queue_name, tags)

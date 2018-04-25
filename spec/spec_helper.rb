@@ -6,6 +6,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'sidekiq'
 require 'sidekiq-middleware-datadog'
 require 'rails-middleware-datadog'
+require 'sinatra-middleware-datadog'
 require 'datadog-client'
 
 module Mock

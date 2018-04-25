@@ -1,11 +1,8 @@
 # coding: utf-8
 
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
 Gem::Specification.new do |spec|
     spec.name          = "ruby-dogstatsd"
-    spec.version       = "0.1.0"
+    spec.version       = "0.0.3"
     spec.authors       = ["Top Free Games"]
     spec.email         = ["backend@tfgco.com"]
     spec.description   = %q{Rails middleware report metrics to Datadog}

@@ -8,6 +8,12 @@ describe Sidekiq::Middleware::Datadog do
     attr_accessor :socket
   end
 
+  class Sidekiq::Middleware::Datadog
+    def compute_elapsed_time_ms(start_time, end_time)
+      21
+    end
+  end
+
   describe 'reports metrics to dd-statsd when middleware gets called' do  
     before(:all)  do
       @statsd = Datadog::Statsd.new("localhost", 8125)
@@ -41,7 +47,7 @@ describe Sidekiq::Middleware::Datadog do
 
         it 'should publish metrics from the fisrt job to dogstatd' do
           expect(@statsd.socket.buffer[0]).to eq([
-            "worker.run_time_ms:0|ms|#custom:tag,worker:0,env:test,name:mock/worker,queue:default,error:false"
+            "worker.run_time_ms:21|ms|#custom:tag,worker:0,env:test,name:mock/worker,queue:default,error:false"
           ])
 
           expect(@statsd.socket.buffer[1]).to eq([
@@ -51,7 +57,7 @@ describe Sidekiq::Middleware::Datadog do
 
         it 'should publish metrics from the second job to dogstatd' do
           expect(@statsd.socket.buffer[0]).to eq([
-            "worker.run_time_ms:0|ms|#custom:tag,worker:0,env:test,name:mock/worker,queue:default,error:false"
+            "worker.run_time_ms:21|ms|#custom:tag,worker:0,env:test,name:mock/worker,queue:default,error:false"
           ])
 
           expect(@statsd.socket.buffer[1]).to eq([

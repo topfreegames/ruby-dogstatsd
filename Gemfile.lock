@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    datadog-middleware (0.1.0)
+    ruby-dogstatsd (0.1.0)
       dogstatsd-ruby (>= 2.0.0)
       sidekiq
 
@@ -41,10 +41,10 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  datadog-middleware!
   rack
   rake
   rspec (~> 3.0)
+  ruby-dogstatsd!
   sidekiq
 
 RUBY VERSION
