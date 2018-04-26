@@ -5,7 +5,7 @@ require 'sidekiq'
 module Sidekiq
   module Middleware
     class Datadog
-      attr_accessor :hostname, :statsd_host, :statsd_port, :statsd, :xalala 
+      attr_accessor :hostname, :statsd_host, :statsd_port, :statsd
       # Configure and install datadog instrumentation. Example:
       #
       #   Sidekiq.configure_server do |config|
