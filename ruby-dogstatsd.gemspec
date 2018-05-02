@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
     spec.summary       = "A scenario specifc dogstatsd client. DataDog/dogstatsd-ruby fork"
     spec.description   = "Add ruby, sinatra and sidekiq middleware to DataDog/dogstatsd-ruby"
     spec.name          = "ruby-dogstatsd"
-    spec.version       = "0.1.0"
+    spec.version       = "0.2.0"
     spec.authors       = ["Top Free Games"]
     spec.email         = ["backend@tfgco.com"]
     spec.description   = %q{Rails middleware report metrics to Datadog}
