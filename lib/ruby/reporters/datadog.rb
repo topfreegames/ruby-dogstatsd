@@ -48,6 +48,14 @@ module Ruby
           tags:tags
         )
       end
+
+      def timing(metric_name, value, tags)
+        statsd.timing(
+          metric_name,
+          value,
+          tags:tags
+        )
+      end
     
       private
       def from_status_to_error(status)
